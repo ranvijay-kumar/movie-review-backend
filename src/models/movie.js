@@ -10,11 +10,12 @@ const Movie = mongoose.model("Movie", {
     releaseDate: {
         type: Date,
         required: false
+        // todo
 
     },
     averageRating: {
         type: Number,
-        required: true,
+        required: false,
         default: null,
         validator(value) {
             if(value && (value>10 || value<1)) {

@@ -14,7 +14,7 @@ router.post("/movie", async (req, res) => {
                     return item;
                 }
             });
-            if (duplicateMovie.length>0) {
+            if (duplicateMovie.length > 0) {
                 return res.status(400).send({
                     Success: "False",
                     message: "Movie already in the movie list",
@@ -44,6 +44,7 @@ router.delete("/movie/:id", async (req, res) => {
     let _id = req.params.id;
     try {
         await Movie.deleteOne({ _id });
+        await Review.deleteMany({ movie: _id });
         res.status(200).send({ Success: "True" });
     } catch (error) {
         res.status(500).send(error);
