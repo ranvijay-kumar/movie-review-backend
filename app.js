@@ -5,11 +5,9 @@ const movieRouter = require("./src/routes/movie");
 const reviewRouter = require("./src/routes/review");
 const cors = require("cors");
 const DB_URL = process.env.DB_URL || "localhost";
-const DB_PORT = process.env.DB_PORT ||  27017;
+const DB_PORT = process.env.DB_PORT || 27017;
 
-
-mongoose.connect("mongodb://"+DB_URL+":"+DB_PORT+"/movie-rating");
-
+mongoose.connect("mongodb://" + DB_URL + ":" + DB_PORT + "/movie-rating");
 
 const port = process.env.port || 5000;
 
